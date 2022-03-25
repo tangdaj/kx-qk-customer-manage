@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kaxin.qkcustomermanage.mapper.QkGroupMapper">
+    <select id="queryList" resultType="com.kaxin.qkcustomermanage.entity.VO.QkGroupVO">
+        select a.id,
+               a.name,
+               a.create_time,
+               b.id rule_id,
+               b.custm_limit,
+               b.allo_loop
+        from kx_qk_group a
+                 left join kx_qk_rule b on a.rule_id = b.id
+        order by a.create_time
+    </select>
+</mapper>
